@@ -1,12 +1,60 @@
 timer.py
 ========
 
-@author Richard White, rwhite@crashwhite.com
-@version 2018-11-06
+`timer.py` is a Python3 program that runs a countdown timer in the Terminal, and then plays an alarm bell sound when 00:00:00 is reached. This program has been tested in macOS, Ubuntu 16.04, and Raspbian.
 
-This Python3 program takes a time in minutes entered by the user
-and displays a countdown time in the Terminal window. Upon reaching
-00:00:00, an alarm bell rings.
+## Getting Started
 
+Download the project and unzip it in a convenient directory.
+
+```
+cd ~/Downloads
+sudo mv timer-master.zip /usr/bin/local/
+cd /usr/bin/local
+sudo unzip timer-master.zip
+cd timer-master
+python3 timer.py
+```
+
+
+### Prerequisites
+
+The program is written in Python3. The Python modules `pyaudio` and `wave` are required to play the sound. 
+
+### Installing
+
+To use this program, download the package with `timer.py` and `alarm_bell.wav`. Open a Terminal window, navigate to the download directory, and run the program.
+
+If you don't have `pyaudio` installed you will need to import it using pip3.
+
+####macOS
+
+```
+pip3 install pyaudio
+```
+
+If you don't have pip installed for Python 3, install it in Ubuntu using:
+
+```
+sudo apt-get install python3-pip
+```
+
+####Ubuntu
+```
+sudo apt-get install python3-pip
+sudo apt-get install portaudio19-dev
+pip3 install pyaudio
+```
+
+### Running
+Navigate to directory
+
+## Authors
+
+* **Richard White** - *Initial work*, 2018-11-07
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 
