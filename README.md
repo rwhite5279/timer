@@ -16,6 +16,13 @@ cd timer-master
 ```
 
 To run the program:
+
+```
+python timer.py
+```
+
+or 
+
 ```
 python3 timer.py
 ```
@@ -29,20 +36,25 @@ The program is written in Python3. The Python modules `pyaudio` and `wave` are r
 
 To use this program, download the package with `timer.py` and `alarm_bell.wav`. Open a Terminal window, navigate to the download directory, and run the program.
 
-If you don't have `pyaudio` installed you will need to import it using pip3.
+If you don't have `pyaudio` installed you will need to import it using the command line utility `pip` or `pip3` (depending on how you are running Python3).
 
-#### macOS
+```
+pip install pyaudio
+```
+
+or
+
 ```
 pip3 install pyaudio
 ```
 
-If you don't have pip installed for Python 3, install it in Ubuntu using:
+If you don't have `pip` installed for Python3, install it in Ubuntu using:
 
 ```
 sudo apt-get install python3-pip
 ```
 
-#### Ubuntu
+#### Ubuntu, Ubuntu for Windows
 ```
 sudo apt-get install python3-pip
 sudo apt-get install portaudio19-dev
