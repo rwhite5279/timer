@@ -19,7 +19,7 @@ import time
 import os
 import pyaudio  # to play alarm
 import wave     # to play alarm
-
+import sys      # to get command line arguments
 
 def play_bell():
     """Geez, playing audio in Python is kind of complicated!
@@ -39,8 +39,7 @@ def play_bell():
     stream.close()
     p.terminate()
 
-def input_time():
-    t_string = input("Countdown time (min, or xx:yy:zz): ")
+def process_time(t_string):
     # process the input to find out which format it's in,
     # and convert input string to minutes
     if ":" in t_string:
@@ -56,7 +55,7 @@ def input_time():
             print("Error. Time format should be MM:SS or HH:MM:SS.")
             os.exit()
     else:
-        t = eval(t_string)
+        t = float(t_string)
     return t
 
 def time_string(tf):
@@ -65,7 +64,6 @@ def time_string(tf):
     minutes = (secs_remaining - hours * 3600) // 60
     seconds = secs_remaining - hours * 3600 - minutes * 60
     return "{0:2s}:{1:2s}:{2:2s}".format(str(hours).zfill(2), str(minutes).zfill(2), str(seconds).zfill(2))
-
          
 def run_loop(tf):
     while time.time() < tf - 1:
@@ -73,8 +71,14 @@ def run_loop(tf):
         print(time_string(tf))
         time.sleep(1)
  
-def main():
-    t = input_time()
+def main(args):
+    # Check for command line argument for input, otherwise, ask them
+    if len(args) > 1:
+        t_string = args[1]
+    else:
+        t_string = input("Countdown time (min, or xx:yy:zz): ")
+
+    t = process_time(t_string)
     tf = time.time() + t*60 + 1 # off-by-one error, start at given time
     run_loop(tf)
     os.system("clear")
@@ -82,4 +86,4 @@ def main():
     play_bell()
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)
