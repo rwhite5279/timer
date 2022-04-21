@@ -25,8 +25,11 @@ def play_bell():
     """Geez, playing audio in Python is kind of complicated!
     """
     # set things up to play a file
-    chunk = 1024    # defines a stream chunk
-    f = wave.open(r"./alarm_bell.wav","rb")
+    chunk = 1024        # defines a stream chunk
+    # so we can find bell filepath to this_directory 
+    path_to_this_directory = os.path.dirname(os.path.realpath(__file__))
+    alarm_filepath = path_to_this_directory + "/alarm_bell.wav"
+    f = wave.open(alarm_filepath,"rb")
     p = pyaudio.PyAudio()
     stream = p.open(format = p.get_format_from_width(f.getsampwidth()), channels = f.getnchannels(), rate = f.getframerate(), output = True)
     data = f.readframes(chunk)
