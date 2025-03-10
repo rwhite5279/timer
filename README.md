@@ -30,7 +30,7 @@ python3 timer.py
 
 ### Prerequisites
 
-The program is written in Python3. The Python modules `pyaudio` and `wave` are required to play the sound. 
+The program is written in Python3. The Python modules `pyaudio` and `wave` are required to play the sound, as well as the open source [portaudio](https://github.com/PortAudio/portaudio).
 
 ### Installing
 
@@ -46,6 +46,12 @@ or
 
 ```
 pip3 install pyaudio
+```
+
+If you run into errors installing pyaudio, you may need to install `portaudio` first. On the Mac, this can be done with [Homebrew](https://brew.sh):
+
+```
+brew install portaudio
 ```
 
 If you don't have `pip` installed for Python3, install it in Ubuntu using:
